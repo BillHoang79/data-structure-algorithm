@@ -7,7 +7,7 @@ function square(num) {
 
 var nums = [1,2,3,4,5,6,7,8,9,10]
 nums.forEach(square)
-
+   
 // forEach applies a boolean function to an array and returns true if every element can be true
 function isEven(num) {
 	return num % 2 == 0
