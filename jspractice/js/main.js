@@ -167,4 +167,162 @@ var person1 = {name:"John"}
 var person2 = {name:"John"}
 console.log(person1 === person2) // false because different objects
 
+// conditional statements
+
+// use the if statement if we want to execute a script only if the condition is true
+var num = 1
+if (num === 1) {
+	console.log("num is equal to 1")
+}
+
+// if else statement for when the condition is true or false(else)
+var num = 0 
+if (num === 1) {
+	console.log("num is equal to 1")
+} else {
+	console.log("num is not equal to 1, the value of num is " + num)
+}
+
+// if else can also be represented by the ternary operator ?
+if (num === 1) {
+	num--
+} else {
+	num++
+}
+// with ternary operator
+(num === 1) ? num-- : num++
+
+// multiple if else statements
+var month = 5
+if (month === 1) {
+	console.log("January")
+} else if (month === 2) {
+	console.log("Febuary")
+} else if (month === 3) {
+	console.log("March")
+} else {
+	console.log("Month is not January, Febuary or March")
+}
+
+// switch statement, if the condition we are evaluating is the same as the previous one(however, it is being compares to different values)
+var month = 5
+switch(month) {
+	case 1:
+		console.log("January")
+		break
+	case 2:
+		console.log("Febuary")
+		break
+	case 3:
+		console.log("March")
+		break
+	default:
+		console.log("Month is not January, Febuary or March")
+}
+
+/*One thing that is very important in a switch statement is the usage of case and break
+keywords. The case clause determines whether the value of switch is equal to the value
+of the case clause. The break statement stops the switch statement from executing the
+rest of the statement (otherwise, it will execute all the scripts from all case clauses below
+the matched case until a break statement is found in one of the case clauses). And finally,
+we have the default statement, which is executed by default if none of the case
+statements are true (or if the executed case statement does not have the break statement).*/
+
+// loops for, while, and do... while
+
+for (var i = 0; i < 10; i++) {
+	console.log(i)
+} // outs the values from 0 to 9
+
+// executes the srcipt inside the while loop while the condition is true, will print out values 0-9
+var i = 0
+while(i < 10)
+{
+	console.log(i)
+	i++
+}
+
+// only difference is that the condition is evaluated after the script
+// in while loop the condition is evaluated before executing the script
+var i = 0
+do {
+	console.log(i)
+	i++
+} while (i < 10)
+
+// Functions
+function sayHello() {
+	console.log('Hello!')
+}
+// call function, invoke
+sayHello()
+
+// function with arguments(variables with which functions that does something)
+function output(text) {
+	console.log(text)
+}
+
+// use it example
+output('Hello!')
+
+// can use as many arguments as you want but you have to invoke it
+output('Hello!', 'Other text')
+
+// return value with function
+function sum(num1, num2) {
+	return num1 + num2
+}
+
+// function calculates the sum of two given numbers ad returns the results
+var results = sum(1,2)
+output(results)
+
+// Object-oriented programming javascript
+var obj = new Object()
+// second way
+var obj = {}
+
+// can also create an object entirely as follows
+
+obj = {
+	name: {
+		first: 'Gandalf',
+		last: 'the Grey'
+	},
+	address: 'Middle Earth'
+}
+
+// an object is an instance of a class. A class defines the characteristics of the object
+function Book(title, pages, isbn) {
+	this.title = title
+	this.pages = pages
+	this.isbn  = isbn
+}
+
+// to instantiate this class
+var book = new Book('title', 'pages', 'isbn')
+
+// access its attributes and update
+console.log(book.title) // outputs book title
+book.title = "new title" // updates the new value of book title
+console.log(book.title) // outputs the updated value
+
+// class can also contain a function, can declare and use a function as the following
+Book.prototype.printTitle = function() {
+	console.log(this.title)
+}
+book.printTitle()
+
+//declare functions directly inside the class definition
+
+function Book(title, pages, isbn) {
+	this.title = title
+	this.pages = pages
+	this.isbn  = isbn
+	this.printIsbn = function() {
+		console.log(this.isbn)
+	}
+}
+book.printIsbn()
+
 
