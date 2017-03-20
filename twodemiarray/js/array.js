@@ -53,3 +53,24 @@ numbers.unshift(-4,-3)
 
 // to remove a value at the end of an array
 numbers.pop()
+
+//using an loop, results will overwrite index 0 and leave last index undefined
+for (var i = 0; i < numbers.length; i++) {
+	numbers[i] = numbers[i+1]
+}
+	console.log(numbers)
+
+// to remove a value from the beginning of an array and shorten the length of an array
+numbers.shift()
+console.log(numbers)
+
+// removing specific elements in an array
+numbers.splice(5,3) // removes three elements starting at index 5
+console.log(numbers)
+
+// splice can be used to insert elements 
+//(insert/remove starting point, elements you want to remove, what you want to insert)
+numbers.splice(5,0,2,3,4) 
+console.log(numbers)
+
+
