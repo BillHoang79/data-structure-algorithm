@@ -1,4 +1,27 @@
 // Iterator Function 
+var isEven = function (x) { 
+	// returns true if x is a multiple of 2
+	console.log(x)
+	return (x % 2 == 0) ? true : false
+ // every method will iterate each element of the array until return false
+ return (x % 2 == 0) ? true : false
+ var numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+ }
+// Iterator function
+var numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+
+numbers.every(isEven) // will stop after 1 because 1 is odd
+numbers.some(isEven) // will stop iterating after 2 is returned true
+numbers.forEach(function(x) { // will iterate every number in the array
+	console.log((x % 2 == 0))
+})
+
+// returns a new array with a result
+var myMap = numbers.map(isEven)
+console.log(isEven)
+
+// filter 
+var evenNumbers = numbers.filter(isEven) // returns only even numbers
 
 // Preforms a operator or generates an value
 function square(num) {
