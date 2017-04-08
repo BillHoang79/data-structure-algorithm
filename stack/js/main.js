@@ -1,5 +1,33 @@
-// Stack set up
-          
+// STACK 
+function Stack() {
+	// properties and methods go here
+}
+
+var items = [] // data structure to store the elements
+
+push(element(s) // adds a new item or items to the top of the stack
+pop() // this removes the top item from the stack, also returns removed element
+peek() // this returns the top element from the stack for info only, does not remove it
+isEmpty() // true if stack contains zero elements, false if stack > 0
+clear() // removes all elements of the stack
+size() // returns how elements in the stack, similar to .length for arrays
+
+// push method adds new elements to the top of the stack, meaning the end
+this.push = function(element) {
+	items.push(element)
+}
+
+// pop method removes last item we added into array
+this.pop = function() {
+	return items.pop()
+}
+
+// peek lets us look at the last item we added
+this.peek = function() {
+	return items[items.length-1]
+}
+
+// Stack set up(not so proper way)         
 function Stack() {
 	this.dataStore = []
 	this.top = 0
