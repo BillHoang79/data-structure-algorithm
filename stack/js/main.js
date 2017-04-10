@@ -74,7 +74,7 @@ function Stack() {
 	this.clear = clear
 	this.length = length
 }
-
+  
 function push(element) {
 	this.dataStore[this.top++] = element
 }
