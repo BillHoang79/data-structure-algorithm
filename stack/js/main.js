@@ -34,7 +34,7 @@ this.print = function () {
 	}
 }
 
-// instanciate new stacl
+// instanciate new stack
 var stack = new Stack()
 console.log(stack.isEmpty()) // true because its empty
 
@@ -53,6 +53,54 @@ stack.pop()
 stack.pop()
 console.log(stack.size()) // 2
 stack.print() // 5, 8
+
+// using stack to convert decimals to binary(computer science reasons)
+
+function dividedBy2(decNumber) {
+	var remStack = new Stack(),
+		rem,
+		binaryString = ''
+
+	while (decNumber > 0 ) {
+		rem = Math.floor(decNumber % 2)
+		remStack.push(rem)
+		decNumber = Math.floor(decNumber / 2)
+	}
+
+	while (!remStack.isEmpty()) {
+		binaryString += remStack.pop().toString()
+	}
+	return binaryString
+}
+
+console.log(dividedBy2(233))
+console.log(dividedBy2(10))
+console.log(dividedBy2(10000))
+
+// using stack to convert decimal to base
+
+function baseConverter(decNumber, base) {
+	var nStack = new Stack(),
+		n,
+		baseString = ''
+		digits = '0123456789ABCDEF'
+
+	while (decNumber > 0 ) {
+		n = Math.floor(decNumber % base)
+		nStack.push(n)
+		decNumber = Math.floor(decNumber / base)
+	}
+
+	while (!nStack.isEmpty()) {
+		baseString += digits[nStack.pop()]
+	}
+
+	return baseString
+}
+
+console.log(baseConverter(100345, 2))
+console.log(baseConverter(100345, 8))
+console.log(baseConverter(100345, 16))
 
 
 
