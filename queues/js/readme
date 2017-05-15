@@ -1,0 +1,42 @@
+// First declare Queue class
+function Queue(){
+	//properties and method go here
+
+	// Using the array data structure to store elements
+	var items = [];
+
+	// Adds item(s) at the back of the queue
+	this.enqueue = function(element){
+		items.push(element);
+	};
+
+	// Removes the first item of the queue and element(item that is in the front of the queue)
+	this.dequeue = function(){
+		return items.shift();
+	};
+
+	// Returns the first element of the Queue, the first one added and the first one that will be removed 
+	this.front = function(){
+		return items[0];
+	};
+
+	// True is Queue isEmpty, False if Queue is bigger than 0
+	this.isEmpty = function(){
+		return items.length == 0;
+	};
+
+	// Clears Queue of elements
+	this.clear = function(){
+		items = [];
+	};
+
+	// Returns the number of elements in the Queue
+	this.size = function(){
+		return items.length;
+	};
+	// Print method
+	this.print = function(){
+		console.log(items.toString());
+	};
+}
+
