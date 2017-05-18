@@ -1,46 +1,46 @@
-function Queue(){
+// Priority Queue
+
+function PriorityQueue(){
 
 	var items = [];
 
-	this.enqueue = function(element){
-		items.push(element);
-	};
-
-	this.dequeue = function(){
-		return items.shift();
-	};
-
-	this.front = function(){
-		return items[0];
-	};
+	function QueueElement(element, priority, isEmpty){
+		this.element = element;
+		this.priority = priority;
+		this.isEmpty = isEmpty;
+	}
 
 	this.isEmpty = function(){
 		return items.length == 0;
+	}
+
+	this.enqueue = function(element, priority){
+		var queueElement = new QueueElement(element, priority);
+
+		if (this.isEmpty()){
+			items.push(queueElement);
+		} else {
+			var added = false;
+			for (var i=0; i<items.length; i++){
+				if(queueElement.priority < items[i].priority){
+					items.splice(i,0,queueElement);
+					added = true;
+					break; 
+				}
+			}
+			if (!added){
+				items.push(queueElement);
+			}
+		}
 	};
 
-	this.clear = function(){
-		items = [];
-	};
+	var priorityQueue = new PriorityQueue();
 
-	this.size = function(){
-		return items.length;
-	};
+	priorityQueue.enqueue("John", 2);
+	priorityQueue.enqueue("Jack", 1);
+	priorityQueue.enqueue("Camila", 1);
+	priorityQueue.print();
 
-	this.print = function(){
-		console.log(items.toString());
-	};
+	console.log(priorityQueue);
 }
 
-var queue = new Queue();
-console.log(queue.isEmpty());
-
-queue.enqueue("John");
-queue.enqueue("Jack");
-queue.enqueue("Camila");
-
-queue.print();
-console.log(queue.size());
-console.log(queue.isEmpty());
-queue.dequeue();
-queue.dequeue();
-queue.print();
