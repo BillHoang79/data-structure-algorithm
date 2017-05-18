@@ -5,6 +5,7 @@ function priorityQueue(){
 	var items = [];
 
 	// Special element(can be any type) to be added to priorityQueue
+
 	function queueElement(element, priority){
 		this.element = element;
 		this.priority = priority;
@@ -13,19 +14,22 @@ function priorityQueue(){
 	this.enqueue = function(element, priority){
 		var queueElement = new queueElement(element, priority);
 
-		// if queue is empty, element will get pushed in, if not empty then
+		// if queue is empty, element will get pushed in, if not empty then it compares which element has priority. if elements have the same priority, elements that was added to the queue first will get priority.
+
 		if (this.isEmpty()){
 			items.push(queueElement); 2
 		} else {
 			var added = false;
+
+			// Once we find the element with the bigger priority we insert the new element accordingly
 			for (var i=0; i<items.length; i++){
 				if(queueElement.priority < items[i].priority){
 					items.splice(i,0,queueElement); 3
 					added = true;
-					break;  4
+					break;  4 // stops looping the queue
 				}
 			}
-			if (!added){ 5
+			if (!added){ 5 // determines the priority
 				items.push(queueElement);
 			}
 		}
